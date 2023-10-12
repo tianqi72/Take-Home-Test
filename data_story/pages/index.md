@@ -2,32 +2,32 @@
 title: Life Expectancy Insights & Business Opportunity
 ---
 
-# Background
-## Why This Analysis
+# Overview
+- Assessment of the company's internal strengths and weaknesses as well as external opportunities and threats.
+- Focus on opportunities with data-driven insights from life expectancy research.
+# Why This Analysis
 - Gain a deeper understanding of the company's strategic position.
 - Help refine strategies and prioritize resources.
-## Overview
-- Assessment of the company's internal strengths and weaknesses as well as external opportunities and threats.
-- Focus on opportunities with data driven insights from life expectancy research.
 
-# Strengths to Maximize
-- Pioneering in Psychedelic Medicine
+# Strengths
+- Pioneering in psilocybin treatment
 - Innovative approach
-# Weakness to Minimize
-- Brand recognition
+# Weaknesses
 - Research related difficulties
+- Brand recognition
 # Threats
 - Competition
 - Stigma around seeking mental health assistance
+- Public perception
 # Opportunities
-## The progress in economics and technology lay foundation
+## The progress in economy and technology laid the foundation
 
 <Details title="Definition">
 “life expectancy” refers to the number of years a person can expect to live. 
 </Details>
 
 - Life expectancy has been rising around the world.
-- Economic growth and technological advancements serves as a robust underpinning for the pursuit of mental health.
+- Economic growth and technological advancements serve as a robust underpinning for the pursuit of mental health.
 
 <LineChart
   data={world_by_year}
@@ -97,8 +97,30 @@ WHERE year=2017 AND score IS NOT NULL
 ```
 
 ## The present circumstances present a prime opportunity.
-- Global pandemic significantly affected mental wellbeing.
+- Global pandemic significantly affected mental well-being.
 - It is an opportunity to shine a spotlight on mental health.
+
+<LineChart
+  data={covid}
+  x=year
+  y=life_expectancy
+  yAxisTitle='Age'
+  series=country
+  yMin = 70
+  title = "Worldwide Life Expectancy Trend"
+>
+<ReferenceArea xMin='2020' xMax='2022' label='COVID-19' color=yellow labelPosition=right/>
+</LineChart>
+
+```sql covid
+SELECT
+  entity as country, year,
+  life_expectancy
+FROM life_expectancy
+WHERE entity IN ('Oceania', 'Europe', 'Americas', 'Asia', 'Africa') 
+AND year>=2016
+ORDER BY year
+```
 
 ### Conditions After COVID-19
 <BigValue 
@@ -133,30 +155,10 @@ SELECT '39%' AS score
 SELECT 516372 AS score
 ```
 
-<LineChart
-  data={covid}
-  x=year
-  y=life_expectancy
-  yAxisTitle='Age'
-  series=country
-  yMin = 70
-  title = "Worldwide Life Expectancy Trend"
->
-<ReferenceArea xMin='2020' xMax='2022' label='COVID-19' color=yellow labelPosition=right/>
-</LineChart>
 
-```sql covid
-SELECT
-  entity as country, year,
-  life_expectancy
-FROM life_expectancy
-WHERE entity IN ('Oceania', 'Europe', 'Americas', 'Asia', 'Africa') 
-AND year>=2016
-ORDER BY year
-```
 ## Consumer segments exhibit distinct variations. 
-- Female has higher life expectancy.
-- Young adults has the highest prevalence of serious mental illness. 
+- Female has a higher life expectancy.
+- Young adults have the highest prevalence of serious mental illness. 
 - The prevalence of any mental illness is highest among adults with multiple ethnicities. 
 
 <BarChart 
@@ -242,7 +244,7 @@ AI/AN = American Indian / Alaskan Native.
 
 # Recommendations
 - Raise mental well-being awareness and brand awareness.
-- Utilize benchmarking to identify unique selling propositions.
+- Utilize benchmarking.
 - Segment the market. 
 
 
